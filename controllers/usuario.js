@@ -74,6 +74,32 @@ var controller = {
                 });
             });
     },
+
+    existeUserAdmin: (req, res) => {
+        
+        Usuario.findOne({ tipo: "ADMINISTRADOR" }).
+            exec((err, usuario) => {
+
+                if (err) {
+                    return res.status(500).send({
+                        status: "error",
+                        message: err
+                    });
+                }
+
+                if (!usuario) {
+                    return res.status(200).send({
+                        status: "vacio",
+                        message: "No existe el usuario"
+                    });
+                }
+
+                return res.status(200).send({
+                    status: "success",
+                    message: "Existe"
+                });
+            });
+    },
     getNameUser: (req, res) => {
         var _iduser = req.params._id;
     

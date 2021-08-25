@@ -13,5 +13,7 @@ router.put('/update-password',verificarTokenUser, UsuarioController.updatePasswo
 router.delete('/delete-datos/:_id', UsuarioController.delete_user );
 router.get('/cantidad-existente/:estado?', UsuarioController.cantidadUsuariosExistente)
 router.get('/all-users/:estado?', UsuarioController.getUsuarios);
+router.get('/existeAdmin',UsuarioController.existeUserAdmin);
+
 
 module.exports = router; 
