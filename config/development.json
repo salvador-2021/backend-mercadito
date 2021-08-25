@@ -1,0 +1,10 @@
+{
+	"nombre" : "API Rest Express - Negocios",
+	"configDB":{
+        "HOST":"mongodb://localhost:27017/negocios"
+	},
+	"configToken":{
+	   "SEED":"secret_19961998",
+	   "expiration":"5h"
+	}
+}
