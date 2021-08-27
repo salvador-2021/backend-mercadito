@@ -78,6 +78,18 @@ var controller = {
         var _idNegocio = req.negocio_autentificado._id;
 
         Negocio.findById({ "_id": _idNegocio }).exec((err, negocio) => {
+            if(err){
+                return res.status(500).send({
+                    status: "errro",
+                    message: "hubo un problema en el servidor"
+                });
+            }
+            if(!negocio){
+                return res.status(200).send({
+                    status: "vacio",
+                    message: "no hay registros"
+                });
+            }
 
             return res.status(200).send({
                 status: "success",
@@ -608,8 +620,6 @@ var controller = {
         var queryMongo = Negocio.find({ "estado": false });
         var estadoParaments = req.params.estado;
 
-        console.log(estadoParaments);
-
         if (estadoParaments && estadoParaments === 'Activo') {
 
             queryMongo = Negocio.find({ "estado": true });
@@ -744,9 +754,7 @@ var controller = {
 
         //ID DEL NEGOCIO
         var _idNegocio = req.params._id;
-        console.log("subida de imagen " + _idNegocio);
-
-
+        
         var file_name = 'Imagen no subido';
 
         if (!req.file) {
@@ -1086,6 +1094,37 @@ var controller = {
             return res.status(200).send({
                 status: "success",
                 message: negocio
+            });
+        });
+    },
+    cantidadProductoRegistrado:(req, res)=>{
+        try {
+            if (typeof req.negocio_autentificado._id === 'undefined') {
+                return res.status(401).send({
+                    status: "error",
+                    message: "Usuario no identificado"
+                });
+            }
+        } catch (error) {
+            return res.status(500).send({
+                status: "error",
+                message: "Usuario no identificadod"
+            });
+        }
+        const _idnegocio = req.negocio_autentificado._id;
+        const nombreArray = req.params._nombreArray;
+
+        Negocio.find({ "_id": _idnegocio }).select({[nombreArray]:1}).exec((err, negocio) => {
+            let cantidadL=0;
+            negocio.forEach((dataList, index, data) => {
+               dataList[nombreArray].forEach((pr)=>{
+                cantidadL = cantidadL + 1;
+               })
+            });
+
+            return res.status(200).send({
+                status: "success",
+                message: cantidadL
             });
         });
     }

@@ -9,7 +9,6 @@ var controller = {
     busqueda_general_producto: (req, res) => {
         //2 .-RECUPERA TODOS LOS PRODUCTO QUE COINCIDAN CON EL NOMBRE 
         var nombrebody = req.params.nombre_producto;
-        console.log("busqueda general");
         var queryMongo = "";
 
         queryMongo = Negocio.find().or([
@@ -77,11 +76,11 @@ var controller = {
             { "plancha.descripcion": { "$regex": nombrebody, "$options": "i" } },
             { "relojeria.nombre": { "$regex": nombrebody, "$options": "i" } },
             { "relojeria.descripcion": { "$regex": nombrebody, "$options": "i" } },
-            
+
             { "ropas.tipo_ropa": { "$regex": nombrebody, "$options": "i" } },
             { "ropas.nombre": { "$regex": nombrebody, "$options": "i" } },
             { "ropas.descripcion": { "$regex": nombrebody, "$options": "i" } },
-            
+
             { "refrigerador.nombre": { "$regex": nombrebody, "$options": "i" } },
             { "refrigerador.descripcion": { "$regex": nombrebody, "$options": "i" } },
             { "servicios.nombre": { "$regex": nombrebody, "$options": "i" } },
@@ -129,14 +128,24 @@ var controller = {
 
                 dataList['abarrote'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "abarrote",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "abarrote",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
+
                 });
 
                 //==========================================================================
@@ -144,14 +153,24 @@ var controller = {
                 _idNegocio = lista[index]._id;
                 dataList['alimento'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "alimento",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "alimento",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
+
                 });
 
                 //==========================================================================
@@ -159,14 +178,24 @@ var controller = {
 
                 dataList['accesorio_movil'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "accesorio_movil",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "accesorio_movil",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
+
                 });
 
                 //==========================================================================
@@ -174,13 +203,22 @@ var controller = {
 
                 dataList['bicicleta'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "bicicleta",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "bicicleta",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -189,13 +227,22 @@ var controller = {
 
                 dataList['bodega'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "bodega",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "bodega",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -204,13 +251,22 @@ var controller = {
 
                 dataList['computadora'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "computadora",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "computadora",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -218,13 +274,22 @@ var controller = {
                 _idNegocio = lista[index]._id;
                 dataList['celulares'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "celulares",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "celulares",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -233,13 +298,22 @@ var controller = {
 
                 dataList['cerrajeria'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "cerrajeria",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "cerrajeria",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -248,13 +322,22 @@ var controller = {
 
                 dataList['cama'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "cama",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "cama",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -263,13 +346,22 @@ var controller = {
 
                 dataList['carpinteria'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "carpinteria",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "carpinteria",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -278,13 +370,22 @@ var controller = {
 
                 dataList['carniceria'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "carniceria",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "carniceria",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -294,13 +395,22 @@ var controller = {
 
                 dataList['construccion'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "construccion",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "construccion",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -309,13 +419,22 @@ var controller = {
 
                 dataList['dentista'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "dentista",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "dentista",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -324,13 +443,22 @@ var controller = {
 
                 dataList['fruteria'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "fruteria",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "fruteria",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -339,13 +467,22 @@ var controller = {
 
                 dataList['farmacia'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "farmacia",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "farmacia",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -354,13 +491,22 @@ var controller = {
 
                 dataList['fotos'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "fotos",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "fotos",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -369,13 +515,22 @@ var controller = {
 
                 dataList['ferreteria'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "ferreteria",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "ferreteria",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -384,13 +539,22 @@ var controller = {
 
                 dataList['fierro'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "fierro",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "fierro",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -398,13 +562,22 @@ var controller = {
                 _idNegocio = lista[index]._id;
                 dataList['floreria'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "floreria",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "floreria",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -413,13 +586,22 @@ var controller = {
 
                 dataList['funeraria'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "funeraria",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "funeraria",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -428,13 +610,22 @@ var controller = {
 
                 dataList['herreria'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "herreria",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "herreria",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -444,13 +635,22 @@ var controller = {
 
                 dataList['hivernadero'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "hivernadero",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "hivernadero",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -459,13 +659,22 @@ var controller = {
 
                 dataList['joyeria'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "joyeria",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "joyeria",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -474,13 +683,22 @@ var controller = {
 
                 dataList['licuadora'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "licuadora",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "licuadora",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -489,13 +707,22 @@ var controller = {
 
                 dataList['muebleria'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "muebleria",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "muebleria",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -504,13 +731,22 @@ var controller = {
 
                 dataList['microonda'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "microonda",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "microonda",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -519,13 +755,22 @@ var controller = {
 
                 dataList['moto'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.marca)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "moto",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.marca)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "moto",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -534,13 +779,22 @@ var controller = {
 
                 dataList['optica'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "optica",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "optica",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -550,13 +804,22 @@ var controller = {
 
                 dataList['plomeria'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "plomeria",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "plomeria",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -565,13 +828,22 @@ var controller = {
 
                 dataList['papeleria'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "papeleria",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "papeleria",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -580,13 +852,22 @@ var controller = {
 
                 dataList['pintura'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "pintura",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "pintura",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -595,13 +876,22 @@ var controller = {
 
                 dataList['plancha'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "plancha",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "plancha",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -610,13 +900,22 @@ var controller = {
 
                 dataList['relojeria'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "relojeria",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "relojeria",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -625,13 +924,22 @@ var controller = {
 
                 dataList['ropas'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion) || er.test(producto.tipo_ropa)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "ropas",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "ropas",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -640,13 +948,22 @@ var controller = {
 
                 dataList['refrigerador'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "refrigerador",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "refrigerador",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -655,13 +972,22 @@ var controller = {
 
                 dataList['servicios'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "servicios",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "servicios",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -670,13 +996,22 @@ var controller = {
 
                 dataList['tela'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.tipo_tela)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "tela",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.tipo_tela)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "tela",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -685,13 +1020,22 @@ var controller = {
 
                 dataList['television'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "television",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "television",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -700,13 +1044,22 @@ var controller = {
 
                 dataList['veladora'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "veladora",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "veladora",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -716,13 +1069,22 @@ var controller = {
 
                 dataList['zapatos'].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: "zapatos",
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: "zapatos",
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
                 });
 
@@ -821,7 +1183,6 @@ var controller = {
     findProductNegocio: (req, res) => {
         const _idNegocio = req.params._idnegocio;
         const nombrebody = req.params._nombre;
-        console.log("nombre body", nombrebody)
 
         //LISTA DE LINEAS DE PRODUCTOS QUE OFRECE EL NEGOCIO
         let listaLinea = [];
@@ -835,8 +1196,6 @@ var controller = {
 
         var queryMongo = Negocio.findOne({ _id: _idNegocio });
 
-        console.log("Cantidad de linea del negocio", listaLinea.length);
-        console.log("linea", listaLinea[0]);
 
         if (listaLinea.length == 1) { //si el negocio manega 1 linea
             let nombreLinea = listaLinea[0];
@@ -893,14 +1252,24 @@ var controller = {
 
                 lista[linea].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombrebody, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
-                        listaProductoEncontrados.push({
-                            nameTable: linea,
-                            _id: _idNegocio,
-                            data: producto
-                        });
+                    let nombreComparar = nombrebody.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+
+                            listaProductoEncontrados.push({
+                                nameTable: linea,
+                                _id: _idNegocio,
+                                data: producto
+                            });
+
+                            break;
+                        }
                     }
+
                 });
             });
 
@@ -978,7 +1347,7 @@ var controller = {
     },
     getAllProductByTable: (req, res) => {
         //BUSCA LOS PRODUCTOS SEGUN SEA EL ARRAYMONGO (abarrote, optica etc) E INDICANDO EL NOMBRE DEL PRODUCTO
-        const nombreproducto = req.params.nameProduct;
+        const nombreproductoBuscar = req.params.nameProduct;
         const nombreTbl = req.params.nameTblSearch;
 
         let opc1 = nombreTbl + ".nombre";
@@ -987,8 +1356,8 @@ var controller = {
         var queryMongo;
 
         queryMongo = Negocio.find().or([
-            { [opc1]: { "$regex": nombreproducto, "$options": "i" } },
-            { [opc2]: { "$regex": nombreproducto, "$options": "i" } },
+            { [opc1]: { "$regex": nombreproductoBuscar, "$options": "i" } },
+            { [opc2]: { "$regex": nombreproductoBuscar, "$options": "i" } }
         ]);
 
         var listaProductoEncontrados = [];
@@ -1022,21 +1391,45 @@ var controller = {
 
                 dataList[nombreTbl].forEach((producto, index, data) => {
 
-                    let er = new RegExp(nombreproducto, 'i')
-                    if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+                    //console.log("producto relacionados",producto);
 
-                        let dataProducto = [{
-                            nameTable: nombreTbl,
-                            _id: _idNegocio,
-                            data: producto
-                        }];
+                    /*  let array = ['seno', 'coseno', 'tangente', 'raiz cuadrada', 'logaritmo'];
+                        // Esto lo que hace es convertirte el String en un array dividido por los espacios de la cadena.
+                        let input = 'raiz cuadrada del coseno de 30'.split(" ");
 
-                        listaProductoEncontrados.push(dataProducto);
+                        for(let i = 0; i < input.length; i++) {
+                            // Esto lo que hace es obtener la palabra i del array (input)
+                            let actual = input[i];
+                            // Aquí comprobamos que exista la palabra en el array, ya que si no existe, devuevlve -1
+                            if(array.indexOf(actual) != -1) {
+                                console.log("Palabra encontrada en la posición " + array.indexOf(actual) + " de la lista");
+                                console.log("La palabra es: " + actual); 
+                            }
+                        } */
+                    //let nombreProducto = producto.nombre.split(" ");
+                    //let descripcionProducto = producto.descripcion.split(" ");
+                    let nombreComparar = nombreproductoBuscar.split(" ");
+
+                    for (let i = 0; i < nombreComparar.length; i++) {
+                        let palabraActual = nombreComparar[i];
+
+                        let er = new RegExp(palabraActual, 'i');
+                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+                            let dataProducto = [{
+                                nameTable: nombreTbl,
+                                _id: _idNegocio,
+                                data: producto
+                            }];
+
+                            listaProductoEncontrados.push(dataProducto);
+                            break;
+                        }
                     }
+
                 });
             });
 
-            
+
             return res.status(200).send({
                 status: "success",
                 message: listaProductoEncontrados
@@ -1098,8 +1491,6 @@ var controller = {
 
                     });
                 });
-
-                console.log(listaProductoEncontrados);
 
                 return res.status(200).send({
                     status: "success",

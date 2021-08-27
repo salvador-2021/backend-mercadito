@@ -29,7 +29,7 @@ const upload = multer( { storage: storage } );
 
 //CUANDO EL USUARIO ESTA LOGUEADO USARA ESTA 
 router.put('/update-data', verificarTokenNegocio , negocioController.actualizarDatos);
-router.get('/getDataNegocio' ,verificarTokenNegocio ,  negocioController.getDataNegocio);
+router.get('/getDataNegocio', verificarTokenNegocio , negocioController.getDataNegocio);
 
 router.delete('/delete_data', verificarTokenNegocio, negocioController.delete_negocio);
 router.put('/update-password', verificarTokenNegocio ,negocioController.updatePassword);
@@ -46,5 +46,6 @@ router.get('/get_data_negocio_perfil/:_id' , negocioController.getDataNegocioFor
 router.put('/inc_view/:_id' , negocioController.aumentarVistas );
 
 router.get('/get-Linea-negocio',verificarTokenNegocio, negocioController.getLineaNegocio);
+router.get('/cantidad-producto-registrado/:_nombreArray', verificarTokenNegocio, negocioController.cantidadProductoRegistrado);
 
 module.exports = router;
