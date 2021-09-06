@@ -930,7 +930,7 @@ var controller = {
                         let palabraActual = nombreComparar[i];
 
                         let er = new RegExp(palabraActual, 'i');
-                        if (er.test(producto.nombre) || er.test(producto.descripcion)) {
+                        if (er.test(producto.nombre) || er.test(producto.descripcion) || er.test(producto.tipo_ropa)) {
 
                             listaProductoEncontrados.push({
                                 nameTable: "ropas",

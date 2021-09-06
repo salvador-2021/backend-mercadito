@@ -80,7 +80,7 @@ var controller = {
         Negocio.findById({ "_id": _idNegocio }).exec((err, negocio) => {
             if(err){
                 return res.status(500).send({
-                    status: "errro",
+                    status: "error",
                     message: "hubo un problema en el servidor"
                 });
             }
@@ -1147,7 +1147,7 @@ async function updateLineaNegocio(_id, body) {
 async function crearNegocio(_idproducto, body) {
     //CUADO SE REGISTRA EL NEGOCIO, ESTARA ACTIVADO POR 2 MESES
     const fechaMas2meses = new Date();
-    fechaMas2meses.setMonth(fechaMas2meses.getMonth() + 2);
+    fechaMas2meses.setMonth(fechaMas2meses.getMonth() + 1);
 
     let NegocioInsert = new Negocio({
         _id: _idproducto,
