@@ -200,6 +200,8 @@ var controller = {
         var body = req.body;
     
         var datos_producto = {
+            imagen: body.imagen,
+            comentarios:body.comentarios,
             nombre: body.nombre,
             descripcion: body.descripcion,
             uso: body.uso,

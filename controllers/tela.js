@@ -324,6 +324,7 @@ var controller = {
         var datos_producto = {
             _id:body._id,
             imagen: body.imagen,
+            comentarios:body.comentarios,
             nombre: body.nombre,
             tipo_tela: body.tipo_tela,
             medidas: body.medidas,

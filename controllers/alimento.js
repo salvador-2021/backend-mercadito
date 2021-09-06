@@ -345,6 +345,7 @@ var controller = {
         var datos_carniceria = {
             _id: body._id,
             imagen: body.imagen,
+            comentarios:body.comentarios,
             nombre: body.nombre,
             descripcion: body.descripcion,
             unidadventa: body.unidadventa,

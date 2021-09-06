@@ -324,6 +324,7 @@ var controller = {
             _id:body._id,
             imagen: body.imagen,
             nombre: body.nombre,
+            comentarios:body.comentarios,
             descripcion: body.descripcion,
             incluye: body.incluye,
             medidas: body.medidas,

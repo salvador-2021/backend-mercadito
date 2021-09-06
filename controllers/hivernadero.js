@@ -281,6 +281,7 @@ var controller = {
         var datos_producto = {
             _id: body._id,
             imagen: body.imagen,
+            comentarios:body.comentarios,
             nombre: body.nombre,
             instru_cuidado: body.instru_cuidado,
             otra_inf: body.otra_inf,
