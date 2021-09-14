@@ -101,7 +101,7 @@ var controller = {
     getDataNegocioForPerfil: (req, res) => {
         /*OBTENEMOS LOS DATOS DEL NEGOCIO INDICANDO SU ID Y LOS CAMPOS A MOSTRAR*/
         const _idnegocio = req.params._id;
-        Negocio.findById({ "_id": _idnegocio }).select({ estadoL: 1, nombre: 1, imagen_negocio: 1, telefono: 1, celular: 1, facebook: 1, horario_ser: 1, lineaNegocio: 1 , perfil:1 }).exec((error, negocio) => {
+        Negocio.findById({ "_id": _idnegocio }).select({ estadoL: 1, nombre: 1, imagen_negocio: 1, telefono: 1, celular: 1, facebook: 1, horario_ser: 1, lineaNegocio: 1 ,localidad:1, perfil:1 }).exec((error, negocio) => {
 
             if (error) {
                 return res.status(500).send({

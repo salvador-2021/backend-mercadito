@@ -469,6 +469,7 @@ var controller = {
         var datos_ropa = {
             _id: body._id,
             imagen: body.imagen,
+            comentarios:body.comentarios,
             nombre: body.nombre,
             descripcion: body.descripcion,
             detalle: body.detalle,

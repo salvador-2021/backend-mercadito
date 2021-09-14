@@ -327,6 +327,8 @@ var controller = {
 
         var datos_servicio = {
             _id:body._id,
+            imagen: body.imagen,
+            comentarios:body.comentarios,
             tipo_servicio: body.tipo_servicio,
             nombre: body.nombre,
             descripcion: body.descripcion,

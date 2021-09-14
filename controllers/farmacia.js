@@ -341,7 +341,7 @@ var controller = {
             _id: body._id,
             imagen: body.imagen,
             comentarios:body.comentarios,
-            nombre: body.nombre.toUpperCase(),
+            nombre: body.nombre,
             descripcion: body.descripcion,
             categoria: body.categoria,
             unidadventa: body.unidadventa,

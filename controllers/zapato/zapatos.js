@@ -531,6 +531,7 @@ var controller = {
         var datos_zapato = {
             _id: body._id,
             imagen: body.imagen,
+            comentarios:body.comentarios,
             nombre: body.nombre,
             descripcion: body.descripcion,
             tipo_calzado: body.tipo_calzado,
